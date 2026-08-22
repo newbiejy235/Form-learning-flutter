@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:profile/pages/homePage.dart';
 import 'package:profile/pages/login.dart';
+import 'package:profile/pages/navigation/history.dart';
+import 'package:profile/pages/navigation/profile.dart';
+import 'package:profile/pages/navigation/wallet.dart';
 import 'package:profile/pages/register.dart';
 
 void main() {
@@ -14,8 +17,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Login Form',
-      home: Scaffold(body: registerPages()),
+      debugShowCheckedModeBanner: false,
+      routes: {
+        "/login": (context) => LoginPages(),
+        "/register": (context) => registerPages(),
+        "/homepage": (context) => HomePage(),
+        "/Wallet": (context) => Wallet(),
+        "/profile": (context) => Profile(),
+        "/history": (context) => History(),
+      },
+      initialRoute: "/login",
     );
   }
 }
@@ -163,5 +174,3 @@ class _LatihanDropDownState extends State<LatihanDropDown> {
     );
   }
 }
-
-

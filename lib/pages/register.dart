@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:profile/pages/login.dart';
 
 class registerPages extends StatelessWidget {
   const registerPages({super.key});
@@ -6,10 +7,8 @@ class registerPages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("register"),
-      ),
-      body: Register() ,
+      appBar: AppBar(title: Text("register")),
+      body: Register(),
     );
   }
 }
@@ -28,7 +27,6 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
-        
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
@@ -38,7 +36,6 @@ class _RegisterState extends State<Register> {
               borderRadius: BorderRadius.circular(10),
             ),
             child: Center(
-            
               child: Padding(
                 padding: const EdgeInsets.all(9),
                 child: Column(
@@ -92,8 +89,8 @@ class _RegisterState extends State<Register> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Container(
-                         padding: EdgeInsets.all(2),
-                         width: 300,
+                          padding: EdgeInsets.all(2),
+                          width: 300,
                           decoration: BoxDecoration(
                             border: Border.all(
                               color: Colors.lightBlueAccent,
@@ -104,15 +101,30 @@ class _RegisterState extends State<Register> {
                           ),
                           child: TextButton(
                             onPressed: () {
-                              print(username.text); 
+                              print(username.text);
                               print(email.text);
-
                             },
-                            child: Text("Submit",style: TextStyle(color: Colors.white),),
+                            child: Text(
+                              "Submit",
+                              style: TextStyle(color: Colors.white),
+                            ),
                           ),
                         ),
                       ],
                     ),
+
+                   Container(
+                          margin: EdgeInsets.only(top: 25),
+                          child: TextButton(
+                            onPressed: () {
+                              Navigator.pushReplacementNamed(
+                                context,
+                                "/login"
+                              );
+                            },
+                            child: const Text("login") ,
+                          ),
+                        ),
                   ],
                 ),
               ),
@@ -123,4 +135,3 @@ class _RegisterState extends State<Register> {
     );
   }
 }
-

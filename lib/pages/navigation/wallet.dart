@@ -1,30 +1,30 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
+class Wallet extends StatefulWidget {
   // final String nama;
   // final int umur;
-  const HomePage({
+  const Wallet({
     super.key,
     //  required this.nama,
     //   required this.umur
   });
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<Wallet> createState() => _WalletState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _WalletState extends State<Wallet> {
   @override
   Widget build(BuildContext context) {
-    int currentIndex = 0;
+    int currentIndex = 2;
     // final data =
     //     ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
 
     // final nama = data["nama"];
     // final umur = data["umur"];
     return Scaffold(
-      appBar: AppBar(title: Text("HomePage")),
-      backgroundColor: Colors.blue,
+      appBar: AppBar(title: Text("Wallet")),
+      backgroundColor: Colors.yellow,
 
       // body: ListView(
       //   children: [
@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
       //     // Text(umur.toString())
       //   ],
       // ),
-      body: Center(child: Text("data")),
+      body: Center(child: Text("Wallet")),
 
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
@@ -40,6 +40,7 @@ class _HomePageState extends State<HomePage> {
         unselectedItemColor: Colors.blueGrey,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+
           BottomNavigationBarItem(icon: Icon(Icons.history), label: "History"),
           BottomNavigationBarItem(icon: Icon(Icons.wallet), label: "Wallet"),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
@@ -50,7 +51,7 @@ class _HomePageState extends State<HomePage> {
             currentIndex = value;
           });
           if (value == 0) {
-            return;
+             Navigator.pushReplacementNamed(context, "/homepage");
           } else if (value == 1) {
             Navigator.pushReplacementNamed(context, "/history");
           } else if (value == 2) {

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:profile/pages/homePage.dart';
+import 'package:profile/pages/register.dart';
 
 class LoginPages extends StatelessWidget {
   const LoginPages({super.key});
@@ -6,10 +8,8 @@ class LoginPages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("login"),
-      ),
-      body: Login() ,
+      appBar: AppBar(title: Text("login")),
+      body: Login(),
     );
   }
 }
@@ -29,7 +29,6 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
-        
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
@@ -39,7 +38,6 @@ class _LoginState extends State<Login> {
               borderRadius: BorderRadius.circular(10),
             ),
             child: Center(
-            
               child: Padding(
                 padding: const EdgeInsets.all(9),
                 child: Column(
@@ -106,8 +104,8 @@ class _LoginState extends State<Login> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Container(
-                         padding: EdgeInsets.all(2),
-                         width: 300,
+                          padding: EdgeInsets.all(2),
+                          width: 300,
                           decoration: BoxDecoration(
                             border: Border.all(
                               color: Colors.lightBlueAccent,
@@ -118,11 +116,32 @@ class _LoginState extends State<Login> {
                           ),
                           child: TextButton(
                             onPressed: () {
-                              print(username.text); 
-                              print(password.text);
-
+                              Navigator.pushNamed(
+                                context,
+                                "/homepage",
+                                // arguments: {
+                                //   "nama" : username.text,
+                                //   "umur" : 10
+                                // }
+                              );
                             },
-                            child: Text("Submit",style: TextStyle(color: Colors.white),),
+                            child: Text(
+                              "Submit",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
+
+                        Container(
+                          margin: EdgeInsets.only(top: 25),
+                          child: TextButton(
+                            onPressed: () {
+                              Navigator.pushReplacementNamed(
+                                context,
+                                "/register"
+                              );
+                            },
+                            child: const Text("buat akun"),
                           ),
                         ),
                       ],
@@ -137,4 +156,3 @@ class _LoginState extends State<Login> {
     );
   }
 }
-
